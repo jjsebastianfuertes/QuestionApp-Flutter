@@ -17,25 +17,44 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
-      'questions': 'What\'s your favorite color?',
-      'anwsers': ['Black', 'Red', 'White', 'Blue']
+      'questions': 'What\'s the capital of Ecuador?',
+      'anwsers': [
+        {'text': 'Guayaquil', 'score': 0},
+        {'text': 'Cuenca', 'score': 0},
+        {'text': 'Galapagos', 'score': 0},
+        {'text': 'Quito', 'score': 100}
+      ]
     },
     {
-      'questions': 'What\'s your favorite animal?',
-      'anwsers': ['Cow', 'Dog', 'Snake', 'Lion']
+      'questions': 'How big are condor\'s wings?',
+      'anwsers': [
+        {'text': '2 mts', 'score': 100},
+        {'text': '8 mts', 'score': 0},
+        {'text': '1 mts', 'score': 0},
+        {'text': '10 mts', 'score': 0}
+      ]
     },
     {
-      'questions': 'What\'s your favorite food?',
-      'anwsers': ['Chinesse', 'Italian', 'Mexican', 'Spanish']
+      'questions': 'Where is Montañita beach?',
+      'anwsers': [
+        {'text': 'Esmeraldas', 'score': 0},
+        {'text': 'Guayas', 'score': 100},
+        {'text': 'Santa Cruz', 'score': 0},
+        {'text': 'Loja', 'score': 0}
+      ]
     }
   ];
-  var _questionIndex = 0;
 
-  void _answerQuestion() {
+  var _questionIndex = 0;
+  var _totalScore = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     setState(() {
       _questionIndex++;
     });
-    print('Answer Chosen! ${_questionIndex}');
+//    print('Answer Chosen! $_questionIndex');
     if (_questionIndex < _questions.length) {
       print('We have more questions');
     }
@@ -56,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionIndex,
                   questions: _questions,
                 )
-              : Result(),
+              : Result(_totalScore),
         ),
       ),
     );
