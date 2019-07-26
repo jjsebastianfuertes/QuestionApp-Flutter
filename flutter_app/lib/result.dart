@@ -18,24 +18,30 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
       child: Column(
         children: <Widget>[
-          Text(
-            resultPhrase,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black45,
+          Padding(
+            padding: const EdgeInsets.only(top:200.0),
+            child: Text(
+              resultPhrase,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black45,
+              ),
             ),
           ),
-          RaisedButton(
-            child: Text(
-              'Restart quiz',
-              style: TextStyle(color: Colors.blue),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: RaisedButton(
+              child: Text(
+                'Restart quiz',
+                style: TextStyle(color: Colors.blue),
+              ),
+              onPressed: resetHandler,
             ),
-            onPressed: resetHandler,
           )
         ],
       ),
