@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Container(
           width: double.infinity,
-          child: Column(
+          child:   _questionIndex < questions.length ? Column(
             children: <Widget>[
               Question(questions[_questionIndex]['questions']),
               ...(questions[_questionIndex]['anwsers'] as List<String>)
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
                 return Answer(_answerQuestion, anwser);
               }).toList()
             ],
-          ),
+          ) : Center(child: Text('You did it!'),),
         ),
       ),
     );
