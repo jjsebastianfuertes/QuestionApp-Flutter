@@ -18,7 +18,7 @@ class Quiz extends StatelessWidget {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(top: 100.0),
+          padding: const EdgeInsets.only(top: 40.0),
           child: Question(questions[questionIndex]['questions']),
         ),
         ...(questions[questionIndex]['anwsers'] as List<Map<String, Object>>).map((anwser) {

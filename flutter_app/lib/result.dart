@@ -22,7 +22,7 @@ class Result extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top:200.0),
+            padding: const EdgeInsets.only(top:100.0),
             child: Text(
               resultPhrase,
               textAlign: TextAlign.center,
